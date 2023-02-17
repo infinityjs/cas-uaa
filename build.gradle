@@ -136,13 +136,15 @@ dependencies {
      * since versions are all resolved and controlled by the dependency management
      * plugin via the CAS bom.
      **/
- 
+    // 添加服务注册依赖JSON
+    implementation "org.apereo.cas:cas-server-support-json-service-registry"
     /**
     * Do NOT modify the lines below or else you will risk breaking the build.
     */
     implementation "org.apereo.cas:cas-server-core-api-configuration-model"
     implementation "org.apereo.cas:cas-server-webapp-init"
-
+    implementation "org.apereo.cas:cas-server-support-jdbc:${project.'cas.version'}"
+    implementation "org.apereo.cas:cas-server-support-jdbc-drivers:${project.'cas.version'}"
     if (project.hasProperty("casModules")) {
         def dependencies = project.getProperty("casModules").split(",")
         dependencies.each {
